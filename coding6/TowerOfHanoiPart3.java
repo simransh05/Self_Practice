@@ -1,6 +1,6 @@
 package coding6;
 
-public class TowerOfHanoi {
+public class TowerOfHanoiPart3 {
 	public static void TOH(int n,String src, String help, String des) {
 		if(n==0) {
 			return;
