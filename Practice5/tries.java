@@ -2,7 +2,7 @@ package Practice5;
 
 public class tries {
 	public static class node{
-		node[] children;
+		node[] children; // using array
 		boolean endOfWord;
 		public node() {
 			children =new node[26];
