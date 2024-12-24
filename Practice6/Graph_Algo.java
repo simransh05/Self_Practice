@@ -99,18 +99,53 @@ public class Graph_Algo {
 			System.out.print(dis[i]+"  ");
 		}
 	}
+	public static class Pair implements Comparable<Pair>{
+		int cost;
+		int Node;
+		public Pair(int cost, int node) {
+			this.cost = cost;
+			Node = node;
+		}
+		@Override
+		public int compareTo(Pair o) {
+			// TODO Auto-generated method stub
+			return this.cost - o.cost;
+		}
+	}
+	// ElogE
+	public static void prim(ArrayList<edge> graph[], int v ) {
+		PriorityQueue<Pair> pq = new PriorityQueue<>();
+		pq.add(new Pair(0,0));
+		boolean[] visited = new boolean[v];
+		int MSTcost =0;
+		while(!pq.isEmpty()) {
+			Pair curr = pq.remove();
+			if(visited[curr.Node]==false) {
+				visited[curr.Node]=true;
+				MSTcost+=curr.cost;
+				for(int i=0;i<graph[curr.Node].size();i++) {
+					edge e = graph[curr.Node].get(i);
+					if(visited[e.des]==false) {
+						pq.add(new Pair(e.des,e.weight));
+					}
+				}
+			}
+		}System.out.println(MSTcost);
+	}
 	
 	public static void main(String[] args) {
 		int v =6;
 		ArrayList<edge> graph[] = new ArrayList[v]; 
 		create(graph);
 //		Dijkstra(graph,0,v);
-		BellMan(graph,0,v);
-		
+//		BellMan(graph,0,v);
+		prim(graph,v);
 
 	}
 	
+	// line 36 pair class for Dijkstra 
 	// line 51 Dijkstra
 	// line 80 BellManFord
-
+	// line 102 pair class for Prim's
+	// line 116 Prim's Algorithm
 }
