@@ -41,7 +41,8 @@ public class Graph_Valid_Tree {
 					}
 				}
 
-			}
+			}Queue<Integer> q = new LinkedList<>();
+			
 			return c == 1;
 		}
 	}
