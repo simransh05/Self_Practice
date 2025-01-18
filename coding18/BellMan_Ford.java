@@ -54,7 +54,7 @@ public class BellMan_Ford {
 			}
 		}
 		for(int i=1;i<dis.length;i++) {
-			System.out.println(dis[i]+" ");
+			System.out.print(dis[i]+" ");
 		}
 	}
 
